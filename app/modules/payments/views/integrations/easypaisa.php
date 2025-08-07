@@ -94,13 +94,18 @@
                   <hr>
 
                   <div class="form-group">
-                    <label class="form-label"> Gmail (your gmail id registered on SMS Forwarder)</label>
-                    <input class="form-control" name="payment_params[option][gmail]" value="<?php echo (isset($option->gmail)) ? $option->gmail : ''; ?>">
+                    <label class="form-label">IMAP Host <small>(e.g. {mail.beastsmm.pk:993/imap/ssl/novalidate-cert}INBOX)</small></label>
+                    <input class="form-control" name="payment_params[option][imap_host]" value="<?php echo (isset($option->imap_host)) ? $option->imap_host : ''; ?>">
                   </div>
 
                   <div class="form-group">
-                    <label class="form-label"> Gmail password</label>
-                    <input class="form-control" name="payment_params[option][gmail_password]" type="password" value="<?php echo (isset($option->gmail_password)) ? $option->gmail_password : ''; ?>">
+                    <label class="form-label">IMAP User (Email Address)</label>
+                    <input class="form-control" name="payment_params[option][imap_user]" value="<?php echo (isset($option->imap_user)) ? $option->imap_user : ''; ?>">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">IMAP Password</label>
+                    <input class="form-control" name="payment_params[option][imap_pass]" type="password" value="<?php echo (isset($option->imap_pass)) ? $option->imap_pass : ''; ?>">
                   </div>
 
                   <div class="form-group">
@@ -111,20 +116,24 @@
                       </span>
                       <input type="text" class="form-control text-right" name="payment_params[option][rate_to_usd]" value="<?php echo (isset($option->rate_to_usd)) ? $option->rate_to_usd : 76; ?>">
                       <span class="input-group-append">
-                        <span class="input-group-text">INR</span>
+                        <span class="input-group-text">PKR</span>
                       </span>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="form-group">
-                      <span class="text-danger"><strong><?=lang('note')?></strong></span>
+                      <span class="text-info"><strong>Note:</strong></span>
                       <ul class="small">
-                        <li> Enable access to less secure apps and unlock captcha for your Google account using:
-                            <ol>
-                              <li><a href="https://www.google.com/settings/security/lesssecureapps">https://www.google.com/settings/security/lesssecureapps</a></li>
-                              <li><a href="https://accounts.google.com/b/0/DisplayUnlockCaptcha.">https://accounts.google.com/b/0/DisplayUnlockCaptcha.</a></li>
-                            </ol>
+                        <li>
+                          Enter your cPanel/hosting mail IMAP credentials above.<br>
+                          Example for Host: <code>{mail.beastsmm.pk:993/imap/ssl/novalidate-cert}INBOX</code>
+                        </li>
+                        <li>
+                          Easypaisa transaction verification will use your own email's IMAP, not Gmail.
+                        </li>
+                        <li>
+                          <b>For security:</b> Use a dedicated mailbox for payments and a strong password.
                         </li>
                       </ul>
                     </div>
